@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -89,7 +90,8 @@ class _MainPageState extends State<MainPage> {
         children: <Widget>[
           Expanded(
             child: ListView(
-              children: words.map((word) => Center(child: Text(word))).toList(),
+              children:
+                  words.map((word) => WordWithMetaWidget(word: word)).toList(),
             ),
           ),
           // input to add a word to list
@@ -102,28 +104,59 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
+class WordWithMetaWidget extends StatelessWidget {
+  const WordWithMetaWidget({
+    super.key,
+    required this.word,
+  });
+
+  final WordWithMetadata word;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 100,
+        width: 100,
+        child: Row(
+          children: [
+            Text(word.word),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(word.dateAdded.toString()),
+            const SizedBox(
+              width: 10,
+            ),
+            Icon(
+              word.isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: word.isFavorite
+                  ? Colors.red
+                  : Theme.of(context).colorScheme.error,
+            )
+          ],
+        ));
+  }
+}
+
 class WordInputWidget extends StatefulWidget {
   final ValueChanged<WordWithMetadata> onSubmitted;
   const WordInputWidget({super.key, required this.onSubmitted});
 
   @override
-  State<WordInputWidget> createState() => _WordInputWidgetState(onSubmitted: onSubmitted);
+  State<WordInputWidget> createState() => _WordInputWidgetState();
 }
 
 class _WordInputWidgetState extends State<WordInputWidget> {
   String _word = "";
   bool _isFavorite = false;
-  final ValueChanged<WordWithMetadata> onSubmitted;
 
-  _WordInputWidgetState({required this.onSubmitted});
+  _WordInputWidgetState();
 
-  void submit(bool? isFavorite, String? word) {
-    if (word != null) {
-      _word = word;
-    }
-    if (isFavorite != null) {
-      _isFavorite = isFavorite;
-    }
+  void submit({bool? isFavorite, String? word}) {
+    setState(() {
+      _word = word ?? _word;
+      _isFavorite = isFavorite ?? _isFavorite;
+    });
     widget.onSubmitted(WordWithMetadata(_word, DateTime.now(), _isFavorite));
   }
 
@@ -131,15 +164,15 @@ class _WordInputWidgetState extends State<WordInputWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TextField(
-          decoration: const InputDecoration(
-            labelText: "Add a word",
+        Expanded(
+          child: TextField(
+            decoration: const InputDecoration(
+              labelText: "Add a word",
+            ),
+            onSubmitted: (value) => submit(word: value),
           ),
-          onSubmitted: (value) => _word = value,
         ),
-        Switch(
-            value: _isFavorite,
-            onChanged: ((value) => _isFavorite = value)),
+        Switch(value: _isFavorite, onChanged: ((value) => submit(isFavorite: value))),
       ],
     );
   }
