@@ -1,7 +1,7 @@
 query RepoQuery($prNumber: Int!){
     repository(owner: "tzevet5", name: "Backend"){
         pullRequest(number: $prNumber){
-            
+            body
         }
     }    
 }
