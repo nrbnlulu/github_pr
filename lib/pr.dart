@@ -59,10 +59,9 @@ class PrCommentWidget extends StatelessWidget {
         child: Row(
           children: [
             Text(node.author!.login),
-            SizedBox(
-              width: 200,
-              height: 100,
-              child: Markdown(data: node.body)),
+            Expanded(
+              child: Markdown(data: node.body)
+              ),
           ],
         ),
       ),
