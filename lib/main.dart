@@ -125,13 +125,10 @@ class WordWithMetaWidget extends StatelessWidget {
             ),
             Text(word.dateAdded.toString()),
             const SizedBox(
-              width: 10,
+              width: 12,
             ),
             Icon(
-              word.isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: word.isFavorite
-                  ? Colors.red
-                  : Theme.of(context).colorScheme.error,
+              word.isFavorite ? Icons.favorite : Icons.favorite_border
             )
           ],
         ));
