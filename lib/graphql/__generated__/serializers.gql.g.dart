@@ -378,6 +378,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GRepoCreateAuditEntryVisibility.serializer)
       ..add(GRepoDestroyAuditEntryVisibility.serializer)
       ..add(GRepoQueryData.serializer)
+      ..add(GRepoQueryData_repository.serializer)
+      ..add(GRepoQueryData_repository_pullRequest.serializer)
+      ..add(GRepoQueryData_repository_pullRequest_comments.serializer)
+      ..add(GRepoQueryData_repository_pullRequest_comments_edges.serializer)
+      ..add(
+          GRepoQueryData_repository_pullRequest_comments_edges_node.serializer)
+      ..add(GRepoQueryData_repository_pullRequest_comments_edges_node_author
+          .serializer)
       ..add(GRepoQueryReq.serializer)
       ..add(GRepoQueryVars.serializer)
       ..add(GRepoRemoveMemberAuditEntryVisibility.serializer)
@@ -851,7 +859,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType.nullable(GDraftPullRequestReviewThread)]),
-          () => new ListBuilder<GDraftPullRequestReviewThread?>()))
+          () => new ListBuilder<GDraftPullRequestReviewThread?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType.nullable(
+                GRepoQueryData_repository_pullRequest_comments_edges)
+          ]),
+          () => new ListBuilder<
+              GRepoQueryData_repository_pullRequest_comments_edges?>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

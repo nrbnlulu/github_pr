@@ -1,16 +1,18 @@
+import 'package:get_it/get_it.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:ferry/ferry.dart';
 import 'package:github_pr/graphql/__generated__/schema.schema.gql.dart'
     show possibleTypesMap;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-const token =
-    "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";
-    
-final link = HttpLink("https://api.github.com/graphql", defaultHeaders: {
-  "Authorization":
-      "bearer $token"
-});
+void initClient(GetIt allocator) {
+  var token = dotenv.env["GITHUB_TOKEN"].toString();
 
-final cache = Cache(possibleTypes: possibleTypesMap);
+  final link = HttpLink("https://api.github.com/graphql",
+      defaultHeaders: {"Authorization": "bearer $token"});
 
-final client = Client(link: link, cache: cache);
+  final cache = Cache(possibleTypes: possibleTypesMap);
+
+  final client = Client(link: link, cache: cache);
+  allocator.registerSingleton(client);
+}

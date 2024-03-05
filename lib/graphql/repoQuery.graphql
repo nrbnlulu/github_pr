@@ -1,7 +1,19 @@
-query RepoQuery($prNumber: Int!){
-    repository(owner: "tzevet5", name: "Backend"){
-        pullRequest(number: $prNumber){
+query RepoQuery($prNumber: Int!) {
+  repository(owner: "nrbnlulu", name: "github_pr") {
+    pullRequest(number: $prNumber) {
+      body
+      comments(first: 10) {
+        edges {
+          node {
             body
+            author {
+              avatarUrl
+              login
+            }
+          }
+          cursor
         }
-    }    
+      }
+    }
+  }
 }

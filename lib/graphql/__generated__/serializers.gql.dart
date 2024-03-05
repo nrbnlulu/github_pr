@@ -6,7 +6,14 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:ferry_exec/ferry_exec.dart';
 import 'package:github_pr/graphql/__generated__/repoQuery.data.gql.dart'
-    show GRepoQueryData;
+    show
+        GRepoQueryData,
+        GRepoQueryData_repository,
+        GRepoQueryData_repository_pullRequest,
+        GRepoQueryData_repository_pullRequest_comments,
+        GRepoQueryData_repository_pullRequest_comments_edges,
+        GRepoQueryData_repository_pullRequest_comments_edges_node,
+        GRepoQueryData_repository_pullRequest_comments_edges_node_author;
 import 'package:github_pr/graphql/__generated__/repoQuery.req.gql.dart'
     show GRepoQueryReq;
 import 'package:github_pr/graphql/__generated__/repoQuery.var.gql.dart'
@@ -964,6 +971,12 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GRepoCreateAuditEntryVisibility,
   GRepoDestroyAuditEntryVisibility,
   GRepoQueryData,
+  GRepoQueryData_repository,
+  GRepoQueryData_repository_pullRequest,
+  GRepoQueryData_repository_pullRequest_comments,
+  GRepoQueryData_repository_pullRequest_comments_edges,
+  GRepoQueryData_repository_pullRequest_comments_edges_node,
+  GRepoQueryData_repository_pullRequest_comments_edges_node_author,
   GRepoQueryReq,
   GRepoQueryVars,
   GRepoRemoveMemberAuditEntryVisibility,

@@ -15,6 +15,7 @@ abstract class GRepoQueryVars
   factory GRepoQueryVars([void Function(GRepoQueryVarsBuilder b) updates]) =
       _$GRepoQueryVars;
 
+  int get prNumber;
   static Serializer<GRepoQueryVars> get serializer =>
       _$gRepoQueryVarsSerializer;
 

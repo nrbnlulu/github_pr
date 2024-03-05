@@ -19,22 +19,49 @@ class _$GRepoQueryVarsSerializer
   @override
   Iterable<Object?> serialize(Serializers serializers, GRepoQueryVars object,
       {FullType specifiedType = FullType.unspecified}) {
-    return <Object?>[];
+    final result = <Object?>[
+      'prNumber',
+      serializers.serialize(object.prNumber,
+          specifiedType: const FullType(int)),
+    ];
+
+    return result;
   }
 
   @override
   GRepoQueryVars deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    return new GRepoQueryVarsBuilder().build();
+    final result = new GRepoQueryVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'prNumber':
+          result.prNumber = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
   }
 }
 
 class _$GRepoQueryVars extends GRepoQueryVars {
+  @override
+  final int prNumber;
+
   factory _$GRepoQueryVars([void Function(GRepoQueryVarsBuilder)? updates]) =>
       (new GRepoQueryVarsBuilder()..update(updates))._build();
 
-  _$GRepoQueryVars._() : super._();
+  _$GRepoQueryVars._({required this.prNumber}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        prNumber, r'GRepoQueryVars', 'prNumber');
+  }
 
   @override
   GRepoQueryVars rebuild(void Function(GRepoQueryVarsBuilder) updates) =>
@@ -47,17 +74,22 @@ class _$GRepoQueryVars extends GRepoQueryVars {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GRepoQueryVars;
+    return other is GRepoQueryVars && prNumber == other.prNumber;
   }
 
   @override
   int get hashCode {
-    return 18216055;
+    var _$hash = 0;
+    _$hash = $jc(_$hash, prNumber.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper(r'GRepoQueryVars').toString();
+    return (newBuiltValueToStringHelper(r'GRepoQueryVars')
+          ..add('prNumber', prNumber))
+        .toString();
   }
 }
 
@@ -65,7 +97,20 @@ class GRepoQueryVarsBuilder
     implements Builder<GRepoQueryVars, GRepoQueryVarsBuilder> {
   _$GRepoQueryVars? _$v;
 
+  int? _prNumber;
+  int? get prNumber => _$this._prNumber;
+  set prNumber(int? prNumber) => _$this._prNumber = prNumber;
+
   GRepoQueryVarsBuilder();
+
+  GRepoQueryVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _prNumber = $v.prNumber;
+      _$v = null;
+    }
+    return this;
+  }
 
   @override
   void replace(GRepoQueryVars other) {
@@ -82,7 +127,10 @@ class GRepoQueryVarsBuilder
   GRepoQueryVars build() => _build();
 
   _$GRepoQueryVars _build() {
-    final _$result = _$v ?? new _$GRepoQueryVars._();
+    final _$result = _$v ??
+        new _$GRepoQueryVars._(
+            prNumber: BuiltValueNullFieldError.checkNotNull(
+                prNumber, r'GRepoQueryVars', 'prNumber'));
     replace(_$result);
     return _$result;
   }
