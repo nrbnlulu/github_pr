@@ -160,6 +160,8 @@ class _$GprQueryData_repository_pullRequestSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'title',
       serializers.serialize(object.title,
           specifiedType: const FullType(String)),
@@ -204,6 +206,10 @@ class _$GprQueryData_repository_pullRequestSerializer
       switch (key) {
         case '__typename':
           result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
         case 'title':
@@ -818,6 +824,8 @@ class _$GprQueryData_repository_pullRequest
   @override
   final String G__typename;
   @override
+  final String id;
+  @override
   final String title;
   @override
   final int number;
@@ -840,6 +848,7 @@ class _$GprQueryData_repository_pullRequest
 
   _$GprQueryData_repository_pullRequest._(
       {required this.G__typename,
+      required this.id,
       required this.title,
       required this.number,
       required this.state,
@@ -850,6 +859,8 @@ class _$GprQueryData_repository_pullRequest
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GprQueryData_repository_pullRequest', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        id, r'GprQueryData_repository_pullRequest', 'id');
     BuiltValueNullFieldError.checkNotNull(
         title, r'GprQueryData_repository_pullRequest', 'title');
     BuiltValueNullFieldError.checkNotNull(
@@ -878,6 +889,7 @@ class _$GprQueryData_repository_pullRequest
     if (identical(other, this)) return true;
     return other is GprQueryData_repository_pullRequest &&
         G__typename == other.G__typename &&
+        id == other.id &&
         title == other.title &&
         number == other.number &&
         state == other.state &&
@@ -891,6 +903,7 @@ class _$GprQueryData_repository_pullRequest
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, number.hashCode);
     _$hash = $jc(_$hash, state.hashCode);
@@ -906,6 +919,7 @@ class _$GprQueryData_repository_pullRequest
   String toString() {
     return (newBuiltValueToStringHelper(r'GprQueryData_repository_pullRequest')
           ..add('G__typename', G__typename)
+          ..add('id', id)
           ..add('title', title)
           ..add('number', number)
           ..add('state', state)
@@ -926,6 +940,10 @@ class GprQueryData_repository_pullRequestBuilder
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
   String? _title;
   String? get title => _$this._title;
@@ -971,6 +989,7 @@ class GprQueryData_repository_pullRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
+      _id = $v.id;
       _title = $v.title;
       _number = $v.number;
       _state = $v.state;
@@ -1005,6 +1024,8 @@ class GprQueryData_repository_pullRequestBuilder
           new _$GprQueryData_repository_pullRequest._(
               G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
                   r'GprQueryData_repository_pullRequest', 'G__typename'),
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'GprQueryData_repository_pullRequest', 'id'),
               title: BuiltValueNullFieldError.checkNotNull(
                   title, r'GprQueryData_repository_pullRequest', 'title'),
               number: BuiltValueNullFieldError.checkNotNull(

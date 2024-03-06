@@ -86,6 +86,7 @@ abstract class GprQueryData_repository_pullRequest
   @override
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
+  String get id;
   String get title;
   int get number;
   _i3.GPullRequestState get state;

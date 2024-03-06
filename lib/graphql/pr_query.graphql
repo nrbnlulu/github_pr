@@ -4,6 +4,7 @@
 query prQuery($prNumber: Int!) {
   repository(owner: "nrbnlulu", name: "github_pr") {
     pullRequest(number: $prNumber) {
+      id
       title
       number
       state

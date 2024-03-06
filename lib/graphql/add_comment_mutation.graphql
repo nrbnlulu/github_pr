@@ -1,0 +1,11 @@
+mutation addComment($comment: AddCommentInput!){
+    addComment(input: $comment){
+        commentEdge{
+            cursor
+            node{
+                ...prMessage
+            }
+        }
+    }
+
+}

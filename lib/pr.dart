@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:ferry/ferry.dart' show Client, FetchPolicy;
 import 'package:ferry_flutter/ferry_flutter.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
-import 'package:github_pr/graphql/__generated__/schema.ast.gql.dart';
+import 'package:logger/logger.dart';
 
 import './graphql/__generated__/pr_query.data.gql.dart';
 import './graphql/__generated__/pr_query.req.gql.dart';
@@ -15,35 +13,61 @@ import 'gh_comment.dart';
 import 'graphql/__generated__/schema.schema.gql.dart';
 import 'sa.dart';
 
-class PRWidget extends StatelessWidget {
-  PRWidget({super.key});
-  final client = getIt<Client>();
+final log = Logger();
+
+class PRWidget extends StatefulWidget {
+  const PRWidget({super.key});
+
+  @override
+  State<PRWidget> createState() => _PRWidgetState();
+}
+
+class _PRWidgetState extends State<PRWidget> {
+  final _client = getIt<Client>();
+  final _request = GprQueryReq((b) => b..vars.prNumber = 1);
+  bool _shouldRefetch = false;
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+    var count = 0;
+    timer = Timer.periodic(const Duration(seconds: 5), (t) {
+      if (_shouldRefetch) {
+        count++;
+        log.i("Fetching PR $count");
+        _client.requestController.add(_request);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final prRequest = GprQueryReq((b) =>b
-      ..fetchPolicy=FetchPolicy.NetworkOnly
-      ..vars.prNumber = 1
-      );
     return Operation<GprQueryData, GprQueryVars>(
-      client: client,
-      operationRequest:prRequest ,
+      client: _client,
+      operationRequest: _request,
       builder: (context, response, error) {
-        if (response!.loading) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (response.hasErrors) {
+        if (error != null || response!.hasErrors) {
+          _shouldRefetch = true;
           return Text(
-              "${response.graphqlErrors?.toString()} \n ${response.linkException?.toString()}");
+              "${response!.graphqlErrors?.toString()} \n ${response.linkException?.toString()}");
+        }
+        if (response.loading) {
+          _shouldRefetch = false;
+          return const Center(child: CircularProgressIndicator());
         }
         if (response.data!.repository!.pullRequest == null) {
           return const Text('No PR found');
         }
         var pr = response.data!.repository!.pullRequest!;
         var comments = pr.comments.edges?.toList() ?? [];
-        Timer.periodic(const Duration(seconds: 1), (t) {
-          client.requestController.add(prRequest);
-        });
-        client.requestController.add(prRequest);
+        _shouldRefetch = true;
         return Column(
           children: [
             SizedBox(
@@ -65,8 +89,7 @@ class PRWidget extends StatelessWidget {
                     )
                   ],
                 )),
-                            PrCommentWidget(node: pr),
-
+            PrCommentWidget(node: pr),
             const Divider(),
             Expanded(
               child: ListView.builder(
