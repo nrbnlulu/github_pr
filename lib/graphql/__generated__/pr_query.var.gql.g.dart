@@ -1,23 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'repoQuery.var.gql.dart';
+part of 'pr_query.var.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GRepoQueryVars> _$gRepoQueryVarsSerializer =
-    new _$GRepoQueryVarsSerializer();
+Serializer<GprQueryVars> _$gprQueryVarsSerializer =
+    new _$GprQueryVarsSerializer();
 
-class _$GRepoQueryVarsSerializer
-    implements StructuredSerializer<GRepoQueryVars> {
+class _$GprQueryVarsSerializer implements StructuredSerializer<GprQueryVars> {
   @override
-  final Iterable<Type> types = const [GRepoQueryVars, _$GRepoQueryVars];
+  final Iterable<Type> types = const [GprQueryVars, _$GprQueryVars];
   @override
-  final String wireName = 'GRepoQueryVars';
+  final String wireName = 'GprQueryVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRepoQueryVars object,
+  Iterable<Object?> serialize(Serializers serializers, GprQueryVars object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'prNumber',
@@ -29,10 +28,10 @@ class _$GRepoQueryVarsSerializer
   }
 
   @override
-  GRepoQueryVars deserialize(
+  GprQueryVars deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GRepoQueryVarsBuilder();
+    final result = new GprQueryVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -51,30 +50,29 @@ class _$GRepoQueryVarsSerializer
   }
 }
 
-class _$GRepoQueryVars extends GRepoQueryVars {
+class _$GprQueryVars extends GprQueryVars {
   @override
   final int prNumber;
 
-  factory _$GRepoQueryVars([void Function(GRepoQueryVarsBuilder)? updates]) =>
-      (new GRepoQueryVarsBuilder()..update(updates))._build();
+  factory _$GprQueryVars([void Function(GprQueryVarsBuilder)? updates]) =>
+      (new GprQueryVarsBuilder()..update(updates))._build();
 
-  _$GRepoQueryVars._({required this.prNumber}) : super._() {
+  _$GprQueryVars._({required this.prNumber}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        prNumber, r'GRepoQueryVars', 'prNumber');
+        prNumber, r'GprQueryVars', 'prNumber');
   }
 
   @override
-  GRepoQueryVars rebuild(void Function(GRepoQueryVarsBuilder) updates) =>
+  GprQueryVars rebuild(void Function(GprQueryVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GRepoQueryVarsBuilder toBuilder() =>
-      new GRepoQueryVarsBuilder()..replace(this);
+  GprQueryVarsBuilder toBuilder() => new GprQueryVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GRepoQueryVars && prNumber == other.prNumber;
+    return other is GprQueryVars && prNumber == other.prNumber;
   }
 
   @override
@@ -87,23 +85,23 @@ class _$GRepoQueryVars extends GRepoQueryVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GRepoQueryVars')
+    return (newBuiltValueToStringHelper(r'GprQueryVars')
           ..add('prNumber', prNumber))
         .toString();
   }
 }
 
-class GRepoQueryVarsBuilder
-    implements Builder<GRepoQueryVars, GRepoQueryVarsBuilder> {
-  _$GRepoQueryVars? _$v;
+class GprQueryVarsBuilder
+    implements Builder<GprQueryVars, GprQueryVarsBuilder> {
+  _$GprQueryVars? _$v;
 
   int? _prNumber;
   int? get prNumber => _$this._prNumber;
   set prNumber(int? prNumber) => _$this._prNumber = prNumber;
 
-  GRepoQueryVarsBuilder();
+  GprQueryVarsBuilder();
 
-  GRepoQueryVarsBuilder get _$this {
+  GprQueryVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _prNumber = $v.prNumber;
@@ -113,24 +111,24 @@ class GRepoQueryVarsBuilder
   }
 
   @override
-  void replace(GRepoQueryVars other) {
+  void replace(GprQueryVars other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GRepoQueryVars;
+    _$v = other as _$GprQueryVars;
   }
 
   @override
-  void update(void Function(GRepoQueryVarsBuilder)? updates) {
+  void update(void Function(GprQueryVarsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GRepoQueryVars build() => _build();
+  GprQueryVars build() => _build();
 
-  _$GRepoQueryVars _build() {
+  _$GprQueryVars _build() {
     final _$result = _$v ??
-        new _$GRepoQueryVars._(
+        new _$GprQueryVars._(
             prNumber: BuiltValueNullFieldError.checkNotNull(
-                prNumber, r'GRepoQueryVars', 'prNumber'));
+                prNumber, r'GprQueryVars', 'prNumber'));
     replace(_$result);
     return _$result;
   }

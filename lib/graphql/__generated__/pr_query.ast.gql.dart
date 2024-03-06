@@ -2,11 +2,13 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:github_pr/graphql/__generated__/pr_message_frag.ast.gql.dart'
+    as _i2;
 import 'package:gql/ast.dart' as _i1;
 
-const RepoQuery = _i1.OperationDefinitionNode(
+const prQuery = _i1.OperationDefinitionNode(
   type: _i1.OperationType.query,
-  name: _i1.NameNode(value: 'RepoQuery'),
+  name: _i1.NameNode(value: 'prQuery'),
   variableDefinitions: [
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'prNumber')),
@@ -53,11 +55,29 @@ const RepoQuery = _i1.OperationDefinitionNode(
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
-              name: _i1.NameNode(value: 'body'),
+              name: _i1.NameNode(value: 'title'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
+            ),
+            _i1.FieldNode(
+              name: _i1.NameNode(value: 'number'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            _i1.FieldNode(
+              name: _i1.NameNode(value: 'state'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            _i1.FragmentSpreadNode(
+              name: _i1.NameNode(value: 'prMessage'),
+              directives: [],
             ),
             _i1.FieldNode(
               name: _i1.NameNode(value: 'comments'),
@@ -82,35 +102,10 @@ const RepoQuery = _i1.OperationDefinitionNode(
                       arguments: [],
                       directives: [],
                       selectionSet: _i1.SelectionSetNode(selections: [
-                        _i1.FieldNode(
-                          name: _i1.NameNode(value: 'body'),
-                          alias: null,
-                          arguments: [],
+                        _i1.FragmentSpreadNode(
+                          name: _i1.NameNode(value: 'prMessage'),
                           directives: [],
-                          selectionSet: null,
-                        ),
-                        _i1.FieldNode(
-                          name: _i1.NameNode(value: 'author'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: _i1.SelectionSetNode(selections: [
-                            _i1.FieldNode(
-                              name: _i1.NameNode(value: 'avatarUrl'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null,
-                            ),
-                            _i1.FieldNode(
-                              name: _i1.NameNode(value: 'login'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null,
-                            ),
-                          ]),
-                        ),
+                        )
                       ]),
                     ),
                     _i1.FieldNode(
@@ -130,4 +125,7 @@ const RepoQuery = _i1.OperationDefinitionNode(
     )
   ]),
 );
-const document = _i1.DocumentNode(definitions: [RepoQuery]);
+const document = _i1.DocumentNode(definitions: [
+  prQuery,
+  _i2.prMessage,
+]);

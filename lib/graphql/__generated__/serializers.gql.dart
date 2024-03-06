@@ -5,19 +5,26 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:ferry_exec/ferry_exec.dart';
-import 'package:github_pr/graphql/__generated__/repoQuery.data.gql.dart'
+import 'package:github_pr/graphql/__generated__/pr_message_frag.data.gql.dart'
+    show GprMessageData, GprMessageData_author;
+import 'package:github_pr/graphql/__generated__/pr_message_frag.req.gql.dart'
+    show GprMessageReq;
+import 'package:github_pr/graphql/__generated__/pr_message_frag.var.gql.dart'
+    show GprMessageVars;
+import 'package:github_pr/graphql/__generated__/pr_query.data.gql.dart'
     show
-        GRepoQueryData,
-        GRepoQueryData_repository,
-        GRepoQueryData_repository_pullRequest,
-        GRepoQueryData_repository_pullRequest_comments,
-        GRepoQueryData_repository_pullRequest_comments_edges,
-        GRepoQueryData_repository_pullRequest_comments_edges_node,
-        GRepoQueryData_repository_pullRequest_comments_edges_node_author;
-import 'package:github_pr/graphql/__generated__/repoQuery.req.gql.dart'
-    show GRepoQueryReq;
-import 'package:github_pr/graphql/__generated__/repoQuery.var.gql.dart'
-    show GRepoQueryVars;
+        GprQueryData,
+        GprQueryData_repository,
+        GprQueryData_repository_pullRequest,
+        GprQueryData_repository_pullRequest_author,
+        GprQueryData_repository_pullRequest_comments,
+        GprQueryData_repository_pullRequest_comments_edges,
+        GprQueryData_repository_pullRequest_comments_edges_node,
+        GprQueryData_repository_pullRequest_comments_edges_node_author;
+import 'package:github_pr/graphql/__generated__/pr_query.req.gql.dart'
+    show GprQueryReq;
+import 'package:github_pr/graphql/__generated__/pr_query.var.gql.dart'
+    show GprQueryVars;
 import 'package:github_pr/graphql/__generated__/schema.schema.gql.dart'
     show
         GAbortQueuedMigrationsInput,
@@ -970,15 +977,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GRepoChangeMergeSettingAuditEntryMergeType,
   GRepoCreateAuditEntryVisibility,
   GRepoDestroyAuditEntryVisibility,
-  GRepoQueryData,
-  GRepoQueryData_repository,
-  GRepoQueryData_repository_pullRequest,
-  GRepoQueryData_repository_pullRequest_comments,
-  GRepoQueryData_repository_pullRequest_comments_edges,
-  GRepoQueryData_repository_pullRequest_comments_edges_node,
-  GRepoQueryData_repository_pullRequest_comments_edges_node_author,
-  GRepoQueryReq,
-  GRepoQueryVars,
   GRepoRemoveMemberAuditEntryVisibility,
   GReportedContentClassifiers,
   GRepositoryAffiliation,
@@ -1186,5 +1184,19 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GWorkflowState,
   GWorkflowsParametersInput,
   GX509Certificate,
+  GprMessageData,
+  GprMessageData_author,
+  GprMessageReq,
+  GprMessageVars,
+  GprQueryData,
+  GprQueryData_repository,
+  GprQueryData_repository_pullRequest,
+  GprQueryData_repository_pullRequest_author,
+  GprQueryData_repository_pullRequest_comments,
+  GprQueryData_repository_pullRequest_comments_edges,
+  GprQueryData_repository_pullRequest_comments_edges_node,
+  GprQueryData_repository_pullRequest_comments_edges_node_author,
+  GprQueryReq,
+  GprQueryVars,
 ])
 final Serializers serializers = _serializersBuilder.build();

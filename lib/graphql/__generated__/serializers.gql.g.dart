@@ -377,17 +377,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GRepoChangeMergeSettingAuditEntryMergeType.serializer)
       ..add(GRepoCreateAuditEntryVisibility.serializer)
       ..add(GRepoDestroyAuditEntryVisibility.serializer)
-      ..add(GRepoQueryData.serializer)
-      ..add(GRepoQueryData_repository.serializer)
-      ..add(GRepoQueryData_repository_pullRequest.serializer)
-      ..add(GRepoQueryData_repository_pullRequest_comments.serializer)
-      ..add(GRepoQueryData_repository_pullRequest_comments_edges.serializer)
-      ..add(
-          GRepoQueryData_repository_pullRequest_comments_edges_node.serializer)
-      ..add(GRepoQueryData_repository_pullRequest_comments_edges_node_author
-          .serializer)
-      ..add(GRepoQueryReq.serializer)
-      ..add(GRepoQueryVars.serializer)
       ..add(GRepoRemoveMemberAuditEntryVisibility.serializer)
       ..add(GReportedContentClassifiers.serializer)
       ..add(GRepositoryAffiliation.serializer)
@@ -604,6 +593,21 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GWorkflowState.serializer)
       ..add(GWorkflowsParametersInput.serializer)
       ..add(GX509Certificate.serializer)
+      ..add(GprMessageData.serializer)
+      ..add(GprMessageData_author.serializer)
+      ..add(GprMessageReq.serializer)
+      ..add(GprMessageVars.serializer)
+      ..add(GprQueryData.serializer)
+      ..add(GprQueryData_repository.serializer)
+      ..add(GprQueryData_repository_pullRequest.serializer)
+      ..add(GprQueryData_repository_pullRequest_author.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments_edges.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments_edges_node.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments_edges_node_author
+          .serializer)
+      ..add(GprQueryReq.serializer)
+      ..add(GprQueryVars.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GBulkSponsorship)]),
           () => new ListBuilder<GBulkSponsorship>())
@@ -863,10 +867,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType.nullable(
-                GRepoQueryData_repository_pullRequest_comments_edges)
+                GprQueryData_repository_pullRequest_comments_edges)
           ]),
           () => new ListBuilder<
-              GRepoQueryData_repository_pullRequest_comments_edges?>()))
+              GprQueryData_repository_pullRequest_comments_edges?>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

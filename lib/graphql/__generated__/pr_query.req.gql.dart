@@ -5,32 +5,32 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
-import 'package:github_pr/graphql/__generated__/repoQuery.ast.gql.dart' as _i5;
-import 'package:github_pr/graphql/__generated__/repoQuery.data.gql.dart' as _i2;
-import 'package:github_pr/graphql/__generated__/repoQuery.var.gql.dart' as _i3;
+import 'package:github_pr/graphql/__generated__/pr_query.ast.gql.dart' as _i5;
+import 'package:github_pr/graphql/__generated__/pr_query.data.gql.dart' as _i2;
+import 'package:github_pr/graphql/__generated__/pr_query.var.gql.dart' as _i3;
 import 'package:github_pr/graphql/__generated__/serializers.gql.dart' as _i6;
 import 'package:gql_exec/gql_exec.dart' as _i4;
 
-part 'repoQuery.req.gql.g.dart';
+part 'pr_query.req.gql.g.dart';
 
-abstract class GRepoQueryReq
+abstract class GprQueryReq
     implements
-        Built<GRepoQueryReq, GRepoQueryReqBuilder>,
-        _i1.OperationRequest<_i2.GRepoQueryData, _i3.GRepoQueryVars> {
-  GRepoQueryReq._();
+        Built<GprQueryReq, GprQueryReqBuilder>,
+        _i1.OperationRequest<_i2.GprQueryData, _i3.GprQueryVars> {
+  GprQueryReq._();
 
-  factory GRepoQueryReq([void Function(GRepoQueryReqBuilder b) updates]) =
-      _$GRepoQueryReq;
+  factory GprQueryReq([void Function(GprQueryReqBuilder b) updates]) =
+      _$GprQueryReq;
 
-  static void _initializeBuilder(GRepoQueryReqBuilder b) => b
+  static void _initializeBuilder(GprQueryReqBuilder b) => b
     ..operation = _i4.Operation(
       document: _i5.document,
-      operationName: 'RepoQuery',
+      operationName: 'prQuery',
     )
     ..executeOnListen = true;
 
   @override
-  _i3.GRepoQueryVars get vars;
+  _i3.GprQueryVars get vars;
   @override
   _i4.Operation get operation;
   @override
@@ -44,12 +44,12 @@ abstract class GRepoQueryReq
   String? get requestId;
   @override
   @BuiltValueField(serialize: false)
-  _i2.GRepoQueryData? Function(
-    _i2.GRepoQueryData?,
-    _i2.GRepoQueryData?,
+  _i2.GprQueryData? Function(
+    _i2.GprQueryData?,
+    _i2.GprQueryData?,
   )? get updateResult;
   @override
-  _i2.GRepoQueryData? get optimisticResponse;
+  _i2.GprQueryData? get optimisticResponse;
   @override
   String? get updateCacheHandlerKey;
   @override
@@ -62,30 +62,30 @@ abstract class GRepoQueryReq
   @BuiltValueField(serialize: false)
   _i4.Context? get context;
   @override
-  _i2.GRepoQueryData? parseData(Map<String, dynamic> json) =>
-      _i2.GRepoQueryData.fromJson(json);
+  _i2.GprQueryData? parseData(Map<String, dynamic> json) =>
+      _i2.GprQueryData.fromJson(json);
 
   @override
   Map<String, dynamic> varsToJson() => vars.toJson();
 
   @override
-  Map<String, dynamic> dataToJson(_i2.GRepoQueryData data) => data.toJson();
+  Map<String, dynamic> dataToJson(_i2.GprQueryData data) => data.toJson();
 
   @override
-  _i1.OperationRequest<_i2.GRepoQueryData, _i3.GRepoQueryVars>
-      transformOperation(_i4.Operation Function(_i4.Operation) transform) =>
-          this.rebuild((b) => b..operation = transform(operation));
+  _i1.OperationRequest<_i2.GprQueryData, _i3.GprQueryVars> transformOperation(
+          _i4.Operation Function(_i4.Operation) transform) =>
+      this.rebuild((b) => b..operation = transform(operation));
 
-  static Serializer<GRepoQueryReq> get serializer => _$gRepoQueryReqSerializer;
+  static Serializer<GprQueryReq> get serializer => _$gprQueryReqSerializer;
 
   Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
-        GRepoQueryReq.serializer,
+        GprQueryReq.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GRepoQueryReq? fromJson(Map<String, dynamic> json) =>
+  static GprQueryReq? fromJson(Map<String, dynamic> json) =>
       _i6.serializers.deserializeWith(
-        GRepoQueryReq.serializer,
+        GprQueryReq.serializer,
         json,
       );
 }
