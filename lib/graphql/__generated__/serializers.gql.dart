@@ -5,6 +5,17 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:ferry_exec/ferry_exec.dart';
+import 'package:github_pr/graphql/__generated__/add_comment_mutation.data.gql.dart'
+    show
+        GaddCommentData,
+        GaddCommentData_addComment,
+        GaddCommentData_addComment_commentEdge,
+        GaddCommentData_addComment_commentEdge_node,
+        GaddCommentData_addComment_commentEdge_node_author;
+import 'package:github_pr/graphql/__generated__/add_comment_mutation.req.gql.dart'
+    show GaddCommentReq;
+import 'package:github_pr/graphql/__generated__/add_comment_mutation.var.gql.dart'
+    show GaddCommentVars;
 import 'package:github_pr/graphql/__generated__/pr_message_frag.data.gql.dart'
     show GprMessageData, GprMessageData_author;
 import 'package:github_pr/graphql/__generated__/pr_message_frag.req.gql.dart'
@@ -1184,6 +1195,13 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GWorkflowState,
   GWorkflowsParametersInput,
   GX509Certificate,
+  GaddCommentData,
+  GaddCommentData_addComment,
+  GaddCommentData_addComment_commentEdge,
+  GaddCommentData_addComment_commentEdge_node,
+  GaddCommentData_addComment_commentEdge_node_author,
+  GaddCommentReq,
+  GaddCommentVars,
   GprMessageData,
   GprMessageData_author,
   GprMessageReq,

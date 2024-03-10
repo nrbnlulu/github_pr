@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:ferry/ferry.dart' show Client, FetchPolicy;
 import 'package:ferry_flutter/ferry_flutter.dart';
+import 'package:flutter/widgets.dart';
+import 'package:github_pr/add_comment.dart';
 import 'package:logger/logger.dart';
 
 import './graphql/__generated__/pr_query.data.gql.dart';
@@ -24,7 +26,11 @@ class PRWidget extends StatefulWidget {
 
 class _PRWidgetState extends State<PRWidget> {
   final _client = getIt<Client>();
-  final _request = GprQueryReq((b) => b..vars.prNumber = 1);
+  final _request = GprQueryReq((b) =>
+   b..vars.prNumber = 1
+  ..fetchPolicy = FetchPolicy.NetworkOnly
+   );
+   
   bool _shouldRefetch = false;
   Timer? timer;
 
@@ -89,16 +95,18 @@ class _PRWidgetState extends State<PRWidget> {
                     )
                   ],
                 )),
-            PrCommentWidget(node: pr),
-            const Divider(),
             Expanded(
-              child: ListView.builder(
-                itemCount: comments.length,
-                itemBuilder: (context, index) {
-                  return PrCommentWidget(node: comments[index]!.node!);
-                },
-              ),
-            ),
+                child: ListView(
+              children: [
+                PrCommentWidget(node: pr),
+                const Divider(),
+                ...comments.map((e) => PrCommentWidget(node: e!.node!)),
+              ],
+            )),
+          Padding(
+            padding: const EdgeInsets.all(8.0) ,
+            child: AddCommentWidget(prID: pr.id))
+          
           ],
         );
       },

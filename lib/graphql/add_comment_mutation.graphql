@@ -1,3 +1,6 @@
+# import './pr_message_frag.graphql'
+
+
 mutation addComment($comment: AddCommentInput!){
     addComment(input: $comment){
         commentEdge{
