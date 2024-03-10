@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'repoQuery.req.gql.dart';
+part of 'pr_query.req.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GRepoQueryReq> _$gRepoQueryReqSerializer =
-    new _$GRepoQueryReqSerializer();
+Serializer<GprQueryReq> _$gprQueryReqSerializer = new _$GprQueryReqSerializer();
 
-class _$GRepoQueryReqSerializer implements StructuredSerializer<GRepoQueryReq> {
+class _$GprQueryReqSerializer implements StructuredSerializer<GprQueryReq> {
   @override
-  final Iterable<Type> types = const [GRepoQueryReq, _$GRepoQueryReq];
+  final Iterable<Type> types = const [GprQueryReq, _$GprQueryReq];
   @override
-  final String wireName = 'GRepoQueryReq';
+  final String wireName = 'GprQueryReq';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRepoQueryReq object,
+  Iterable<Object?> serialize(Serializers serializers, GprQueryReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GRepoQueryVars)),
+          specifiedType: const FullType(_i3.GprQueryVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -42,7 +41,7 @@ class _$GRepoQueryReqSerializer implements StructuredSerializer<GRepoQueryReq> {
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GRepoQueryData)));
+            specifiedType: const FullType(_i2.GprQueryData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
@@ -70,10 +69,9 @@ class _$GRepoQueryReqSerializer implements StructuredSerializer<GRepoQueryReq> {
   }
 
   @override
-  GRepoQueryReq deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  GprQueryReq deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GRepoQueryReqBuilder();
+    final result = new GprQueryReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -83,8 +81,8 @@ class _$GRepoQueryReqSerializer implements StructuredSerializer<GRepoQueryReq> {
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GRepoQueryVars))!
-              as _i3.GRepoQueryVars);
+                  specifiedType: const FullType(_i3.GprQueryVars))!
+              as _i3.GprQueryVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -96,8 +94,8 @@ class _$GRepoQueryReqSerializer implements StructuredSerializer<GRepoQueryReq> {
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GRepoQueryData))!
-              as _i2.GRepoQueryData);
+                  specifiedType: const FullType(_i2.GprQueryData))!
+              as _i2.GprQueryData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -126,18 +124,18 @@ class _$GRepoQueryReqSerializer implements StructuredSerializer<GRepoQueryReq> {
   }
 }
 
-class _$GRepoQueryReq extends GRepoQueryReq {
+class _$GprQueryReq extends GprQueryReq {
   @override
-  final _i3.GRepoQueryVars vars;
+  final _i3.GprQueryVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String? requestId;
   @override
-  final _i2.GRepoQueryData? Function(_i2.GRepoQueryData?, _i2.GRepoQueryData?)?
+  final _i2.GprQueryData? Function(_i2.GprQueryData?, _i2.GprQueryData?)?
       updateResult;
   @override
-  final _i2.GRepoQueryData? optimisticResponse;
+  final _i2.GprQueryData? optimisticResponse;
   @override
   final String? updateCacheHandlerKey;
   @override
@@ -149,10 +147,10 @@ class _$GRepoQueryReq extends GRepoQueryReq {
   @override
   final _i4.Context? context;
 
-  factory _$GRepoQueryReq([void Function(GRepoQueryReqBuilder)? updates]) =>
-      (new GRepoQueryReqBuilder()..update(updates))._build();
+  factory _$GprQueryReq([void Function(GprQueryReqBuilder)? updates]) =>
+      (new GprQueryReqBuilder()..update(updates))._build();
 
-  _$GRepoQueryReq._(
+  _$GprQueryReq._(
       {required this.vars,
       required this.operation,
       this.requestId,
@@ -164,25 +162,25 @@ class _$GRepoQueryReq extends GRepoQueryReq {
       required this.executeOnListen,
       this.context})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GRepoQueryReq', 'vars');
+    BuiltValueNullFieldError.checkNotNull(vars, r'GprQueryReq', 'vars');
     BuiltValueNullFieldError.checkNotNull(
-        operation, r'GRepoQueryReq', 'operation');
+        operation, r'GprQueryReq', 'operation');
     BuiltValueNullFieldError.checkNotNull(
-        executeOnListen, r'GRepoQueryReq', 'executeOnListen');
+        executeOnListen, r'GprQueryReq', 'executeOnListen');
   }
 
   @override
-  GRepoQueryReq rebuild(void Function(GRepoQueryReqBuilder) updates) =>
+  GprQueryReq rebuild(void Function(GprQueryReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GRepoQueryReqBuilder toBuilder() => new GRepoQueryReqBuilder()..replace(this);
+  GprQueryReqBuilder toBuilder() => new GprQueryReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GRepoQueryReq &&
+    return other is GprQueryReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -214,7 +212,7 @@ class _$GRepoQueryReq extends GRepoQueryReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GRepoQueryReq')
+    return (newBuiltValueToStringHelper(r'GprQueryReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -229,14 +227,13 @@ class _$GRepoQueryReq extends GRepoQueryReq {
   }
 }
 
-class GRepoQueryReqBuilder
-    implements Builder<GRepoQueryReq, GRepoQueryReqBuilder> {
-  _$GRepoQueryReq? _$v;
+class GprQueryReqBuilder implements Builder<GprQueryReq, GprQueryReqBuilder> {
+  _$GprQueryReq? _$v;
 
-  _i3.GRepoQueryVarsBuilder? _vars;
-  _i3.GRepoQueryVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GRepoQueryVarsBuilder();
-  set vars(_i3.GRepoQueryVarsBuilder? vars) => _$this._vars = vars;
+  _i3.GprQueryVarsBuilder? _vars;
+  _i3.GprQueryVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GprQueryVarsBuilder();
+  set vars(_i3.GprQueryVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
   _i4.Operation? get operation => _$this._operation;
@@ -246,20 +243,19 @@ class GRepoQueryReqBuilder
   String? get requestId => _$this._requestId;
   set requestId(String? requestId) => _$this._requestId = requestId;
 
-  _i2.GRepoQueryData? Function(_i2.GRepoQueryData?, _i2.GRepoQueryData?)?
+  _i2.GprQueryData? Function(_i2.GprQueryData?, _i2.GprQueryData?)?
       _updateResult;
-  _i2.GRepoQueryData? Function(_i2.GRepoQueryData?, _i2.GRepoQueryData?)?
+  _i2.GprQueryData? Function(_i2.GprQueryData?, _i2.GprQueryData?)?
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GRepoQueryData? Function(
-                  _i2.GRepoQueryData?, _i2.GRepoQueryData?)?
+          _i2.GprQueryData? Function(_i2.GprQueryData?, _i2.GprQueryData?)?
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GRepoQueryDataBuilder? _optimisticResponse;
-  _i2.GRepoQueryDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GRepoQueryDataBuilder();
-  set optimisticResponse(_i2.GRepoQueryDataBuilder? optimisticResponse) =>
+  _i2.GprQueryDataBuilder? _optimisticResponse;
+  _i2.GprQueryDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GprQueryDataBuilder();
+  set optimisticResponse(_i2.GprQueryDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String? _updateCacheHandlerKey;
@@ -288,11 +284,11 @@ class GRepoQueryReqBuilder
   _i4.Context? get context => _$this._context;
   set context(_i4.Context? context) => _$this._context = context;
 
-  GRepoQueryReqBuilder() {
-    GRepoQueryReq._initializeBuilder(this);
+  GprQueryReqBuilder() {
+    GprQueryReq._initializeBuilder(this);
   }
 
-  GRepoQueryReqBuilder get _$this {
+  GprQueryReqBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _vars = $v.vars.toBuilder();
@@ -311,27 +307,27 @@ class GRepoQueryReqBuilder
   }
 
   @override
-  void replace(GRepoQueryReq other) {
+  void replace(GprQueryReq other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GRepoQueryReq;
+    _$v = other as _$GprQueryReq;
   }
 
   @override
-  void update(void Function(GRepoQueryReqBuilder)? updates) {
+  void update(void Function(GprQueryReqBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GRepoQueryReq build() => _build();
+  GprQueryReq build() => _build();
 
-  _$GRepoQueryReq _build() {
-    _$GRepoQueryReq _$result;
+  _$GprQueryReq _build() {
+    _$GprQueryReq _$result;
     try {
       _$result = _$v ??
-          new _$GRepoQueryReq._(
+          new _$GprQueryReq._(
               vars: vars.build(),
               operation: BuiltValueNullFieldError.checkNotNull(
-                  operation, r'GRepoQueryReq', 'operation'),
+                  operation, r'GprQueryReq', 'operation'),
               requestId: requestId,
               updateResult: updateResult,
               optimisticResponse: _optimisticResponse?.build(),
@@ -339,7 +335,7 @@ class GRepoQueryReqBuilder
               updateCacheHandlerContext: updateCacheHandlerContext,
               fetchPolicy: fetchPolicy,
               executeOnListen: BuiltValueNullFieldError.checkNotNull(
-                  executeOnListen, r'GRepoQueryReq', 'executeOnListen'),
+                  executeOnListen, r'GprQueryReq', 'executeOnListen'),
               context: context);
     } catch (_) {
       late String _$failedField;
@@ -351,7 +347,7 @@ class GRepoQueryReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'GRepoQueryReq', _$failedField, e.toString());
+            r'GprQueryReq', _$failedField, e.toString());
       }
       rethrow;
     }

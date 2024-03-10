@@ -1,0 +1,23 @@
+# import './pr_message_frag.graphql'
+
+
+query prQuery($prNumber: Int!) {
+  repository(owner: "nrbnlulu", name: "github_pr") {
+    pullRequest(number: $prNumber) {
+      id
+      title
+      number
+      state
+      ...prMessage
+
+      comments(first: 10) {
+        edges {
+          node {
+            ...prMessage
+          }
+          cursor
+        }
+      }
+    }
+  }
+}

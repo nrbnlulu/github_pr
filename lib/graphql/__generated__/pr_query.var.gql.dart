@@ -6,26 +6,26 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:github_pr/graphql/__generated__/serializers.gql.dart' as _i1;
 
-part 'repoQuery.var.gql.g.dart';
+part 'pr_query.var.gql.g.dart';
 
-abstract class GRepoQueryVars
-    implements Built<GRepoQueryVars, GRepoQueryVarsBuilder> {
-  GRepoQueryVars._();
+abstract class GprQueryVars
+    implements Built<GprQueryVars, GprQueryVarsBuilder> {
+  GprQueryVars._();
 
-  factory GRepoQueryVars([void Function(GRepoQueryVarsBuilder b) updates]) =
-      _$GRepoQueryVars;
+  factory GprQueryVars([void Function(GprQueryVarsBuilder b) updates]) =
+      _$GprQueryVars;
 
-  static Serializer<GRepoQueryVars> get serializer =>
-      _$gRepoQueryVarsSerializer;
+  int get prNumber;
+  static Serializer<GprQueryVars> get serializer => _$gprQueryVarsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GRepoQueryVars.serializer,
+        GprQueryVars.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GRepoQueryVars? fromJson(Map<String, dynamic> json) =>
+  static GprQueryVars? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GRepoQueryVars.serializer,
+        GprQueryVars.serializer,
         json,
       );
 }

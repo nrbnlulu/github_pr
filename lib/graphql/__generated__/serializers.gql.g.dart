@@ -377,9 +377,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GRepoChangeMergeSettingAuditEntryMergeType.serializer)
       ..add(GRepoCreateAuditEntryVisibility.serializer)
       ..add(GRepoDestroyAuditEntryVisibility.serializer)
-      ..add(GRepoQueryData.serializer)
-      ..add(GRepoQueryReq.serializer)
-      ..add(GRepoQueryVars.serializer)
       ..add(GRepoRemoveMemberAuditEntryVisibility.serializer)
       ..add(GReportedContentClassifiers.serializer)
       ..add(GRepositoryAffiliation.serializer)
@@ -596,6 +593,28 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GWorkflowState.serializer)
       ..add(GWorkflowsParametersInput.serializer)
       ..add(GX509Certificate.serializer)
+      ..add(GaddCommentData.serializer)
+      ..add(GaddCommentData_addComment.serializer)
+      ..add(GaddCommentData_addComment_commentEdge.serializer)
+      ..add(GaddCommentData_addComment_commentEdge_node.serializer)
+      ..add(GaddCommentData_addComment_commentEdge_node_author.serializer)
+      ..add(GaddCommentReq.serializer)
+      ..add(GaddCommentVars.serializer)
+      ..add(GprMessageData.serializer)
+      ..add(GprMessageData_author.serializer)
+      ..add(GprMessageReq.serializer)
+      ..add(GprMessageVars.serializer)
+      ..add(GprQueryData.serializer)
+      ..add(GprQueryData_repository.serializer)
+      ..add(GprQueryData_repository_pullRequest.serializer)
+      ..add(GprQueryData_repository_pullRequest_author.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments_edges.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments_edges_node.serializer)
+      ..add(GprQueryData_repository_pullRequest_comments_edges_node_author
+          .serializer)
+      ..add(GprQueryReq.serializer)
+      ..add(GprQueryVars.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GBulkSponsorship)]),
           () => new ListBuilder<GBulkSponsorship>())
@@ -851,7 +870,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType.nullable(GDraftPullRequestReviewThread)]),
-          () => new ListBuilder<GDraftPullRequestReviewThread?>()))
+          () => new ListBuilder<GDraftPullRequestReviewThread?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType.nullable(
+                GprQueryData_repository_pullRequest_comments_edges)
+          ]),
+          () => new ListBuilder<
+              GprQueryData_repository_pullRequest_comments_edges?>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint
